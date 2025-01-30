@@ -49,6 +49,8 @@ gives a list of tuples with (key, value) pair from dict <br><br>
 
 [{'name': 'Eve', 'score': 78}, {'name': 'Alice', 'score': 85}, {'name': 'Bob', 'score': 91}]
 ```
+_credit: https://www.geeksforgeeks.org/python-sorted-function/#syntax-of-sorted-function_
+
 ---
 ### Printing out from dictionary
 
