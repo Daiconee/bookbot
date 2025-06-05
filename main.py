@@ -1,28 +1,27 @@
+from stats import get_letters_dict, get_num_words
+import sys
+
 def main():
-    with open("books/frankenstein.txt") as f:
-        file_contents = f.read()
+    if len(sys.argv) != 2:
+        print("Usage: python3 main.py <path_to_book>")
+        sys.exit(1)
+
+    address = sys.argv[1]
+    with open(address) as f:
+        file_contents = f.read().split()
+    num = get_num_words(file_contents)
     letters_dict = get_letters_dict(file_contents)
+    
+    print("============ BOOKBOT ============")
+    print(f"Analysing book found at {address}...")
+    print("----------- Word Count ----------")
+    print(f"Found {num} total words")
+    print("--------- Character Count -------")
     print_letters_dict(letters_dict)
-
-
-def get_letters_dict(file_contents):
-    letters_dict = {}
-    for word in file_contents:
-        ls = list(word)
-        for letter in ls:
-            letter = letter.lower()
-            if (letter.isalpha()):
-                if letter not in letters_dict:
-                    letters_dict[letter] = 1
-                else:
-                    letters_dict[letter] += 1
-
-    letters_dict = dict(sorted(letters_dict.items(), key=lambda item: item[0]))
-    return letters_dict
     
 def print_letters_dict(letters_dict):
     for key,value in letters_dict.items():
-        print(f"The '{key}' character was found {value} times")
+        print(f"{key}: {value}")
 
 if __name__ == '__main__':
     main()
