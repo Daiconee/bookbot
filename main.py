@@ -10,9 +10,9 @@ def main():
     with open(address) as f:
         file_contents = f.read().split()
     num = get_num_words(file_contents)
-    letters_dict = get_letters_dict(file_contents)
+    letters_dict = get_letters_dict(file_contents, num)
     
-    print("============ BOOKBOT ============")
+    print("\n============ BOOKBOT ============")
     print(f"Analysing book found at {address}...")
     print("----------- Word Count ----------")
     print(f"Found {num} total words")
